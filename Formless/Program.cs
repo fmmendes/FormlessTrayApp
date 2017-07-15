@@ -30,6 +30,7 @@ namespace Formless
         private static void ShowNotification()
         {
             SystemSounds.Exclamation.Play();
+            MessageBox.Show("teste");
         }
 
     }

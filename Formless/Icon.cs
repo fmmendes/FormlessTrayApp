@@ -17,7 +17,7 @@ namespace Formless
             ni.Dispose();
         }
 
-        internal void Display()
+        public void Display()
         {
             ni.Icon = SystemIcons.Information;
             ni.Text = "Formless Sample Application";
