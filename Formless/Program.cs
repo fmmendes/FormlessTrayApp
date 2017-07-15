@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Media;
 using System.Windows.Forms;
 
 namespace Formless
@@ -16,7 +14,23 @@ namespace Formless
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            using (Icon i = new Icon())
+            {
+                i.Display();
+                var startTimeSpan = TimeSpan.Zero;
+                var periodTimeSpan = TimeSpan.FromSeconds(5);
+
+                var timer = new System.Threading.Timer((e) =>
+                {
+                    ShowNotification();
+                }, null, startTimeSpan, periodTimeSpan);
+                Application.Run();
+            }
         }
+        private static void ShowNotification()
+        {
+            SystemSounds.Exclamation.Play();
+        }
+
     }
 }
